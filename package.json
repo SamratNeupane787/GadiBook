@@ -9,9 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^5.7.1",
+    "@types/mapbox-gl": "^3.4.0",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.9.0",
+    "lucide-react": "^0.447.0",
+    "mapbox-gl": "^3.7.0",
+    "next": "14.2.14",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.2.14"
+    "react-google-places-autocomplete": "^4.1.0",
+    "react-map-gl": "^7.1.7",
+    "tailwind-merge": "^2.5.2",
+    "uuidv4": "^6.2.13"
   },
   "devDependencies": {
     "postcss": "^8",
