@@ -1,13 +1,25 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect, useId, useRef, useState } from "react";
+import React, { useContext, useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
+import { DirectionDataContext } from "@/context/DirectionDataContext";
+import { SelectedCarAmountContext } from "@/context/SelectedCarAmount";
 
 export function ExpandableCardDemo() {
-  const [active, setActive] = useState(null);
+  const [active, setActive] = useState();
   const id = useId();
   const ref = useRef(null);
+  const { directionData } = useContext(DirectionDataContext);
+  const { carAmount, setCarAmount } = useContext(SelectedCarAmountContext);
+  const [selectedCar, setSelectedCar] = useState(null); // Keep track of the selected car's index
+  const getCost = (charges) => {
+    return (
+      charges *
+      directionData.routes[0].distance *
+      0.000621371192
+    ).toFixed(2);
+  };
 
   useEffect(() => {
     function onKeyDown(event) {
@@ -131,33 +143,40 @@ export function ExpandableCardDemo() {
           <motion.div
             layoutId={`card-${card.title}-${id}`}
             key={card.title}
-            onClick={() => setActive(card)}
-            className="p-4 flex flex-col  hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
+            onClick={() => {
+              setSelectedCar(index); // Set selected car index
+              setCarAmount(getCost(card.title)); // Store car amount
+            }}
+            className={`p-4 flex flex-col  hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer ${
+              selectedCar === index ? "border-4 border-blue-500" : "" // Add border if selected
+            }`}
           >
-            <div className="flex gap-4 flex-col  w-full">
+            <div className="flex gap-4 flex-col w-full">
               <motion.div layoutId={`image-${card.title}-${id}`}>
                 <Image
                   width={100}
                   height={100}
                   src={card.src}
                   alt={card.title}
-                  className="h-30 w-full  rounded-lg object-cover object-top"
+                  className="h-30 w-full rounded-lg object-cover object-top"
                 />
               </motion.div>
-              <div className="flex justify-center items-center flex-col">
-                <motion.h3
-                  layoutId={`title-${card.title}-${id}`}
-                  className="font-medium text-neutral-800 dark:text-neutral-200 text-center md:text-left text-base"
-                >
-                  {card.title}
-                </motion.h3>
-                <motion.p
-                  layoutId={`description-${card.description}-${id}`}
-                  className="text-neutral-600 dark:text-neutral-400 text-center md:text-left text-base"
-                >
-                  {card.description}
-                </motion.p>
-              </div>
+              {directionData?.routes ? (
+                <div className="flex justify-center items-center flex-col">
+                  <motion.h3
+                    layoutId={`title-${card.title}-${id}`}
+                    className="font-medium text-neutral-800 dark:text-neutral-200 text-center md:text-left text-base"
+                  >
+                    {"NPR" + " " + getCost(card.title)}
+                  </motion.h3>
+                  <motion.p
+                    layoutId={`description-${card.description}-${id}`}
+                    className="text-neutral-600 dark:text-neutral-400 text-center md:text-left text-base"
+                  >
+                    {card.description}
+                  </motion.p>
+                </div>
+              ) : null}
             </div>
           </motion.div>
         ))}
@@ -202,21 +221,17 @@ export const CloseIcon = () => {
 const cards = [
   {
     description: "Electric Car",
-    title: "NPR 100/hr",
+    title: 100,
     src: "https://i.pinimg.com/736x/0a/b7/98/0ab798457513fbbeb9c1e2bc83247a38.jpg",
-    ctaText: "Select",
   },
   {
     description: "Normal Taxi",
-    title: "NPR 80/hr",
+    title: 80,
     src: "https://i.pinimg.com/736x/24/98/5b/24985b628fcadb81318bae2bd6d18c38.jpg",
-    ctaText: "Select",
-    ctaLink: "https://ui.aceternity.com/templates",
   },
   {
     description: "Family SUV",
-    title: "NPR 200/hr",
+    title: 200,
     src: "https://img.freepik.com/premium-vector/suv-car-illustration-vector_498574-165.jpg",
-    ctaText: "Select",
   },
 ];

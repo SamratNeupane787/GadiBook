@@ -17,11 +17,11 @@ function Navbar() {
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-12 items-center">
           <div className="flex gap-2 items-center">
-            <House />
+            <House href="#" />
             Home
           </div>
           <div className="flex gap-2 items-center">
-            <CarTaxiFront />
+            <CarTaxiFront href="#" />
             Book ride
           </div>
           <div className="flex gap-2 items-center">
@@ -46,11 +46,11 @@ function Navbar() {
         } md:hidden flex flex-col gap-6 items-center px-8 py-4 w-100vw h-100vh`}
       >
         <div className="flex gap-2 items-center h-1/2">
-          <House />
+          <House href="#" />
           Home
         </div>
         <div className="flex gap-2 items-center  h-1/2">
-          <CarTaxiFront />
+          <CarTaxiFront href="#" />
           Book ride
         </div>
         <div className="flex gap-2 items-center  h-1/2">
