@@ -33,7 +33,7 @@ function CheckoutForm({ amount }) {
       clientSecret: secretKey,
       elements,
       confirmParams: {
-        return_url: "http://localhost:3000/payment-confirm",
+        return_url: "https://gadibook.samratneupane.com.np/payment-confirm",
       },
     });
   };
