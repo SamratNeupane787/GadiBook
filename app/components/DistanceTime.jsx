@@ -1,4 +1,4 @@
-import { DirectionDataContext } from "@/context/DirectionDataContext";
+import { DirectionDataContext } from "../../context/DirectionDataContext";
 import React, { useContext } from "react";
 
 function DistanceTime() {

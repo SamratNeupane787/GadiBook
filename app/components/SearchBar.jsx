@@ -2,8 +2,8 @@
 import { v4 as uuidv4 } from "uuid";
 import { PlaceholdersAndVanishInput } from "./ui/placeholders-and-vanish-input";
 import { useContext, useEffect, useState } from "react";
-import { SourceCoordiContext } from "@/context/SourceCoordiContext";
-import { DestinationCordiContext } from "@/context/DestiCoordiContext";
+import { SourceCoordiContext } from "../../context/SourceCoordiContext";
+import { DestinationCordiContext } from "../../context/DestiCoordiContext";
 
 const MAPBOX_RETRIVE_URL =
   "https://api.mapbox.com/search/searchbox/v1/retrieve/";

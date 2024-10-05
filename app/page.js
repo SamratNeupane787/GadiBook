@@ -6,11 +6,11 @@ import PaymentMethod from "./components/PaymentMethod";
 import BookNow from "./components/BookNow";
 import MapField from "./components/Map";
 import { useEffect, useState } from "react";
-import { UserLocationContext } from "@/context/UserLocationContext";
-import { SourceCoordiContext } from "@/context/SourceCoordiContext";
-import { DestinationCordiContext } from "@/context/DestiCoordiContext";
-import { DirectionDataContext } from "@/context/DirectionDataContext";
-import { SelectedCarAmountContext } from "@/context/SelectedCarAmount";
+import { UserLocationContext } from "../context/UserLocationContext";
+import { SourceCoordiContext } from "../context/SourceCoordiContext";
+import { DestinationCordiContext } from "../context/DestiCoordiContext";
+import { DirectionDataContext } from "../context/DirectionDataContext";
+import { SelectedCarAmountContext } from "../context/SelectedCarAmount";
 export default function Home() {
   const [userLocation, setUserLocation] = useState();
   const [sourceCoordinates, setSourceCoordinates] = useState({});

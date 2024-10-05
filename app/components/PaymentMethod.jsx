@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import cardlist from "./Paymentlogo"; // Make sure this path is correct
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { SelectedCarAmountContext } from "@/context/SelectedCarAmount";
+import { SelectedCarAmountContext } from "../../context/SelectedCarAmount";
 
 function PaymentMethod() {
   const [activeIndex, setActiveIndex] = useState(false);

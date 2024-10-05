@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { Marker } from "react-map-gl";
-import { UserLocationContext } from "@/context/UserLocationContext";
-import { SourceCoordiContext } from "@/context/SourceCoordiContext";
-import { DestinationCordiContext } from "@/context/DestiCoordiContext";
+import { UserLocationContext } from "../../context/UserLocationContext";
+import { SourceCoordiContext } from "../../context/SourceCoordiContext";
+import { DestinationCordiContext } from "../../context/DestiCoordiContext";
 import "mapbox-gl/dist/mapbox-gl.css";
 
 function Markers() {

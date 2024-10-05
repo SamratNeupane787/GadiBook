@@ -2,9 +2,9 @@
 import Image from "next/image";
 import React, { useContext, useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useOutsideClick } from "@/hooks/use-outside-click";
-import { DirectionDataContext } from "@/context/DirectionDataContext";
-import { SelectedCarAmountContext } from "@/context/SelectedCarAmount";
+import { useOutsideClick } from "../../../hooks/use-outside-click.js";
+import { DirectionDataContext } from "../../../context/DirectionDataContext.jsx";
+import { SelectedCarAmountContext } from "../../../context/SelectedCarAmount";
 
 export function ExpandableCardDemo() {
   const [active, setActive] = useState();

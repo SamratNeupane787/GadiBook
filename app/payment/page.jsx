@@ -1,5 +1,5 @@
 "use client";
-import { SelectedCarAmountContext } from "@/context/SelectedCarAmount";
+import { SelectedCarAmountContext } from "../../context/SelectedCarAmount";
 import { loadStripe } from "@stripe/stripe-js";
 import React, { useContext } from "react";
 import { Elements } from "@stripe/react-stripe-js";

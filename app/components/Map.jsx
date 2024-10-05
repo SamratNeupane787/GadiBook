@@ -2,14 +2,14 @@
 import React, { useEffect, useRef } from "react";
 import { Map, Marker, flyTo } from "react-map-gl";
 import { useContext } from "react";
-import { UserLocationContext } from "@/context/UserLocationContext";
+import { UserLocationContext } from "../../context/UserLocationContext";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { useUser } from "@clerk/nextjs";
 import Markers from "./Markers";
-import { SourceCoordiContext } from "@/context/SourceCoordiContext";
-import { DestinationCordiContext } from "@/context/DestiCoordiContext";
+import { SourceCoordiContext } from "../../context/SourceCoordiContext";
+import { DestinationCordiContext } from "../../context/DestiCoordiContext";
 import { uuid } from "uuidv4";
-import { DirectionDataContext } from "@/context/DirectionDataContext";
+import { DirectionDataContext } from "../../context/DirectionDataContext";
 import MapboxRoute from "./MapboxRoute";
 import DistanceTime from "./DistanceTime";
 const MAPBOX_DRIVING_ENDPOINT =
